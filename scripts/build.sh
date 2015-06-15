@@ -30,6 +30,8 @@ EOM
 
 gem install calabash-cucumber
 
-echo y | calabash-ios setup
+echo "y
+
+" | calabash-ios setup
 
 xcodebuild -sdk iphonesimulator -destination 'platform=iOS Simulator' -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build
