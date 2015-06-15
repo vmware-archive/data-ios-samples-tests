@@ -28,7 +28,7 @@ cat > PCFDataSample/Pivotal.plist << EOM
 </plist>
 EOM
 
-gem install calabash-ios
+gem install calabash-cucumber
 
 echo y | calabash-ios setup
 
