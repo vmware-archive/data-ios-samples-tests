@@ -5,7 +5,7 @@ set -e
 
 source .acceptanceconfig
 
-cat > PCFDataAcceptanceTests/Pivotal.plist << EOM
+cat > PCFDataSample/Pivotal.plist << EOM
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -28,10 +28,8 @@ cat > PCFDataAcceptanceTests/Pivotal.plist << EOM
 </plist>
 EOM
 
-gem install cucumber-calabash
+gem install calabash-ios
 
-echo "y
+echo y | calabash-ios setup
 
-" | calabash-ios setup
-
-xcodebuild -sdk iphoneos -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build
+xcodebuild -sdk iphonesimulator -destination 'platform=iOS Simulator' -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build
