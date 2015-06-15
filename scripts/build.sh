@@ -3,7 +3,7 @@
 set -x
 set -e
 
-source .acceptanceconfig
+source acceptanceconfig
 
 cat > PCFDataSample/Pivotal.plist << EOM
 <?xml version="1.0" encoding="UTF-8"?>
