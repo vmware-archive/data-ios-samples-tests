@@ -11,9 +11,9 @@ cat > PCFDataSample/Pivotal.plist << EOM
 <plist version="1.0">
 <dict>
   <key>pivotal.auth.tokenUrl</key>
-  <string>$UAA_URL/oauth/token</string>
+  <string>$DATA_ACCEPTANCE_AUTH_URL/oauth/token</string>
   <key>pivotal.auth.authorizeUrl</key>
-  <string>$UAA_URL/oauth/authorize</string>
+  <string>$DATA_ACCEPTANCE_AUTH_URL/oauth/authorize</string>
   <key>pivotal.auth.redirectUrl</key>
   <string>io.pivotal.ios.PCFDataSample://oauth2callback</string>
   <key>pivotal.auth.clientId</key>
@@ -21,7 +21,7 @@ cat > PCFDataSample/Pivotal.plist << EOM
   <key>pivotal.auth.clientSecret</key>
   <string>$DATA_ACCEPTANCE_CLIENT_SECRET</string>
   <key>pivotal.data.serviceUrl</key>
-  <string>$BACKEND_URL/data/$DATA_ACCEPTANCE_NAMESPACE</string>
+  <string>$DATA_ACCEPTANCE_BACKEND_URL/data/$DATA_ACCEPTANCE_NAMESPACE</string>
   <key>pivotal.data.collisionStrategy</key>
   <string>OptimisticLocking</string>
 </dict>
