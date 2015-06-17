@@ -13,9 +13,9 @@ cat > PCFDataSample/Pivotal.plist << EOM
   <key>pivotal.auth.scopes</key>
   <string>openid offline_access</string>
   <key>pivotal.auth.tokenUrl</key>
-  <string>$DATA_ACCEPTANCE_AUTH_URL/oauth/token</string>
+  <string>$DATA_ACCEPTANCE_AUTH_URL/token</string>
   <key>pivotal.auth.authorizeUrl</key>
-  <string>$DATA_ACCEPTANCE_AUTH_URL/oauth/authorize</string>
+  <string>$DATA_ACCEPTANCE_AUTH_URL/authorize</string>
   <key>pivotal.auth.redirectUrl</key>
   <string>io.pivotal.ios.PCFDataSample://oauth2callback</string>
   <key>pivotal.auth.clientId</key>
