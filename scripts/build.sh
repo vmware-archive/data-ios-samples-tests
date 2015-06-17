@@ -10,6 +10,8 @@ cat > PCFDataSample/Pivotal.plist << EOM
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>pivotal.auth.scopes</key>
+  <string>openid offline_access</string>
   <key>pivotal.auth.tokenUrl</key>
   <string>$DATA_ACCEPTANCE_AUTH_URL/oauth/token</string>
   <key>pivotal.auth.authorizeUrl</key>
