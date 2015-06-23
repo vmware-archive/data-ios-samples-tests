@@ -36,4 +36,4 @@ echo "
 
 y" | calabash-ios setup
 
-xcodebuild -sdk iphoneos -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build
+xcodebuild -sdk iphoneos -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build PROVISIONING_PROFILE="c36664a7-cd05-4879-aabd-1f9c89056961"
