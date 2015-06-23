@@ -36,4 +36,4 @@ echo "
 
 y" | calabash-ios setup
 
-xcodebuild -sdk iphonesimulator -destination 'platform=iOS Simulator' -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build
+xcodebuild -sdk iphoneos -project PCFDataSample.xcodeproj -target PCFDataSample-cal -config Debug clean build
