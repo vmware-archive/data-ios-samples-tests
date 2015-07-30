@@ -2,7 +2,7 @@
 
 set -ex
 
-source acceptanceconfig
+./acceptance-setup.sh
 
 brew install node
 npm install -g ios-deploy
