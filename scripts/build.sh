@@ -3,7 +3,7 @@
 set -x
 set -e
 
-./acceptance-setup.sh
+$(dirname $0)/acceptance-setup.sh
 
 gem install calabash-cucumber
 
