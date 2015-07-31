@@ -74,7 +74,7 @@ echo "5. Fetch certificate"
 echo "======================================================"
 echo ""
 
-cert_path=$(dirname $0)/../PCFDataAcceptance/cert.der
+cert_path=$(dirname $0)/../PCFDataSample/cert.der
 
 $(dirname $0)/get-certificates.sh *.$SYSTEM_DOMAIN:443 $cert_path
 
@@ -98,7 +98,7 @@ echo "7. Write configuration files"
 echo "======================================================"
 echo ""
 
-cat > $(dirname $0)/../PCFDataAcceptanceTests/Pivotal.plist << EOM
+cat > $(dirname $0)/../PCFDataSample/Pivotal.plist << EOM
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
