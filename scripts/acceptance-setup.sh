@@ -121,7 +121,11 @@ cat > $(dirname $0)/../PCFDataSample/Pivotal.plist << EOM
   <string>OptimisticLocking</string>
   <key>pivotal.data.trustAllSslCertificates</key>
   <string>false</string>
+  <key>pivotal.auth.trustAllSslCertificates</key>
+  <string>false</string>
   <key>pivotal.data.pinnedSslCertificateNames</key>
+  <string>$(basename $cert_path)</string>
+  <key>pivotal.auth.pinnedSslCertificateNames</key>
   <string>$(basename $cert_path)</string>
 </dict>
 </plist>
