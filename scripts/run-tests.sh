@@ -2,7 +2,7 @@
 
 set -ex
 
-$(dirname $0)/acceptance-setup.sh
+source $(dirname $0)/acceptance-setup.sh
 
 brew install node
 npm install -g ios-deploy

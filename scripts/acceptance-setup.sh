@@ -9,10 +9,10 @@
 
 ([ -z $UAA_ADMIN_IDENTITY ] || [ -z $UAA_ADMIN_PASSWORD ] || [ -z $UAA_URL ] || [ -z $SYSTEM_DOMAIN ]) && echo "Missing environment variables" && exit 1
 
-username=$(uuidgen)
-password=$(uuidgen)
-namespace=$(uuidgen)
-collection=$(uuidgen)
+export USERNAME=$(uuidgen)
+export PASSWORD=$(uuidgen)
+export NAMESPACE=$(uuidgen)
+export COLLECTION=objects
 
 auth_url=https:\/\/datasync-authentication.$SYSTEM_DOMAIN
 data_url=https:\/\/datasync-datastore.$SYSTEM_DOMAIN
@@ -37,7 +37,7 @@ echo ""
 (
 content_type_header="Content-Type: application/json"
 authorization_header="Authorization: Bearer $admin_token"
-payload="{\"username\" : \"$username\", \"password\" : \"$password\"}"
+payload="{\"username\" : \"$USERNAME\", \"password\" : \"$PASSWORD\"}"
 
 curl -sk $auth_url/api/users -X POST -H "$authorization_header" -H "$content_type_header" -d "$payload"
 )
@@ -50,7 +50,7 @@ echo ""
 
 (
 authorization_header="Authorization: Bearer $admin_token"
-payload="{\"name\" : \"$namespace\"}"
+payload="{\"name\" : \"$NAMESPACE\"}"
 
 curl -sk $data_url/admin/namespaces -X POST -H "$authorization_header" -d "$payload"
 )
@@ -63,9 +63,9 @@ echo ""
 
 (
 authorization_header="Authorization: Bearer $admin_token"
-payload="{\"name\" : \"$collection\"}"
+payload="{\"name\" : \"$COLLECTION\"}"
 
-curl -sk $data_url/admin/namespaces/$namespace/collections -X POST -H "$authorization_header" -d "$payload"
+curl -sk $data_url/admin/namespaces/$NAMESPACE/collections -X POST -H "$authorization_header" -d "$payload"
 )
 
 echo ""
@@ -86,7 +86,7 @@ echo ""
 
 client_id=ios-client
 client_secret=006d0cea91f01a82cdc57afafbbc0d26c8328964029d5b5eae920e2fdc703169
-payload_auth="username=$username&password=$password&scope=openid&grant_type=password&client_id=$client_id&client_secret=$client_secret"
+payload_auth="username=$USERNAME&password=$PASSWORD&scope=openid&grant_type=password&client_id=$client_id&client_secret=$client_secret"
 
 access_token=$(curl -sk $auth_url/token -X POST -d "$payload_auth" | jq '.access_token' | awk -F '"' '{print $2}')
 
@@ -116,7 +116,7 @@ cat > $(dirname $0)/../PCFDataSample/Pivotal.plist << EOM
   <key>pivotal.auth.clientSecret</key>
   <string>$client_secret</string>
   <key>pivotal.data.serviceUrl</key>
-  <string>$data_url/data/$namespace</string>
+  <string>$data_url/data/$NAMESPACE</string>
   <key>pivotal.data.collisionStrategy</key>
   <string>OptimisticLocking</string>
   <key>pivotal.data.trustAllSslCertificates</key>
