@@ -11,7 +11,14 @@
 
 set -ex
 
-([ -z $UAA_ADMIN_IDENTITY ] || [ -z $UAA_ADMIN_PASSWORD ] || [ -z $UAA_URL ] || [ -z $SYSTEM_DOMAIN ]) && echo "Missing environment variables" && exit 1
+[ -z $UAA_URL ] && echo "UAA_URL not set"
+[ -z $UAA_ADMIN_IDENTITY ] && echo "UAA_ADMIN_IDENTITY not set"
+[ -z $UAA_ADMIN_PASSWORD ] && echo "UAA_ADMIN_PASSWORD not set"
+[ -z $SYSTEM_DOMAIN ] && echo "SYSTEM_DOMAIN not set"
+[ -z $DEVICE_UDID ] && echo "DEVICE_UDID not set"
+[ -z $PROFILE_ID ] && echo "PROFILE_ID not set"
+
+([ -z $UAA_ADMIN_IDENTITY ] || [ -z $UAA_ADMIN_PASSWORD ] || [ -z $UAA_URL ] || [ -z $SYSTEM_DOMAIN ] || [ -z $DEVICE_UDID ] || [ -z $PROFILE_ID ]) && exit 1
 
 export USERNAME=$(uuidgen)
 export PASSWORD=$(uuidgen)
