@@ -159,7 +159,7 @@ echo ""
 brew install node
 npm install -g ios-deploy
 
-ios-deploy --bundle $(dirname $0)/../build/Debug-iphoneos/PCFDataSample-cal.app
+ios-deploy --bundle $(dirname $0)/../build/Debug-iphoneos/PCFDataSample-cal.app --id $DEVICE_UDID
 
 BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://10.74.16.174:37265 cucumber
 
