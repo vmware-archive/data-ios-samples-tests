@@ -17,6 +17,7 @@ set -ex
 [ -z $SYSTEM_DOMAIN ] && echo "SYSTEM_DOMAIN not set"
 [ -z $DEVICE_UDID ] && echo "DEVICE_UDID not set"
 [ -z $PROFILE_ID ] && echo "PROFILE_ID not set"
+[ -z $DEVICE_IP ] && echo "DEVICE_IP not set"
 
 ([ -z $UAA_ADMIN_IDENTITY ] || [ -z $UAA_ADMIN_PASSWORD ] || [ -z $UAA_URL ] || [ -z $SYSTEM_DOMAIN ] || [ -z $DEVICE_UDID ] || [ -z $PROFILE_ID ]) && exit 1
 
@@ -168,5 +169,5 @@ npm install -g ios-deploy
 
 ios-deploy --bundle $(dirname $0)/../build/Debug-iphoneos/PCFDataSample-cal.app --id $DEVICE_UDID
 
-BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://10.74.16.174:37265 cucumber
+BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://$DEVICE_IP:37265 cucumber
 
