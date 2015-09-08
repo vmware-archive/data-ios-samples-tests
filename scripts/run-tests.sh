@@ -9,7 +9,7 @@
 # 7. Write configuration files
 # 8. Run tests
 
-set -ex
+set -e
 
 [ -z $UAA_URL ] && echo "UAA_URL not set"
 [ -z $UAA_ADMIN_IDENTITY ] && echo "UAA_ADMIN_IDENTITY not set"
@@ -133,10 +133,10 @@ cat > $(dirname $0)/../PCFDataSample/Pivotal.plist << EOM
   <string>OptimisticLocking</string>
   <key>pivotal.data.trustAllSslCertificates</key>
   <string>false</string>
-  <key>pivotal.auth.trustAllSslCertificates</key>
-  <string>false</string>
   <key>pivotal.data.pinnedSslCertificateNames</key>
   <string>$(basename $cert_path)</string>
+  <key>pivotal.auth.trustAllSslCertificates</key>
+  <string>false</string>
   <key>pivotal.auth.pinnedSslCertificateNames</key>
   <string>$(basename $cert_path)</string>
 </dict>
