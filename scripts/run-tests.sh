@@ -20,7 +20,7 @@ set -e
 [ -z $PROFILE_ID ] && echo "PROFILE_ID not set"
 [ -z $DEVICE_IP ] && echo "DEVICE_IP not set"
 
-([ -z $UAA_ADMIN_IDENTITY ] || [ -z $UAA_ADMIN_PASSWORD ] || [ -z $UAA_URL ] || [ -z $SYSTEM_DOMAIN ] || [ -z $DEVICE_UDID ] || [ -z $PROFILE_ID ] || [ -z $DEVICE_IP]) && exit 1
+([ -z $UAA_ADMIN_IDENTITY ] || [ -z $UAA_ADMIN_PASSWORD ] || [ -z $UAA_URL ] || [ -z $SYSTEM_DOMAIN ] || [ -z $DEVICE_UDID ] || [ -z $PROFILE_ID ] || [ -z $DEVICE_IP ]) && exit 1
 
 export USERNAME=$(uuidgen)
 export PASSWORD=$(uuidgen)
