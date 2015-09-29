@@ -170,5 +170,5 @@ npm install -g ios-deploy
 
 ios-deploy --bundle $(dirname $0)/../build/Debug-iphoneos/PCFDataSample-cal.app --id $DEVICE_UDID
 
-BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://$DEVICE_IP:37265 cucumber
+LC_ALL="en_US.UTF-8" BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://$DEVICE_IP:37265 cucumber
 
