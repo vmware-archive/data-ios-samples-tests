@@ -24,7 +24,7 @@ APP_BUNDLE_PATH = "build/Debug-iphonesimulator/PCFDataSample-cal.app"
 Before do |scenario|
   @calabash_launcher = Calabash::Cucumber::Launcher.new
   unless @calabash_launcher.calabash_no_launch?
-    @calabash_launcher.relaunch
+    @calabash_launcher.relaunch({:timeout => 20})
     @calabash_launcher.calabash_notify(self)
   end
 end
