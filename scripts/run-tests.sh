@@ -171,6 +171,5 @@ npm install -g ios-deploy
 ios-deploy --bundle $(dirname $0)/../build/Debug-iphoneos/PCFDataSample-cal.app --id $DEVICE_UDID
 
 # LC_ALL env variable is necessary to bypass a calabash issue [https://groups.google.com/forum/#!topic/calabash-ios/0s1ZmFrgXP4]
-# LC_ALL="en_US.UTF-8" >>> Commenting this out to see if it's what is causing iOS 8 tests to fail
-BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://$DEVICE_IP:37265 cucumber
+LC_ALL="en_US.UTF-8" BUNDLE_ID=io.pivotal.ios.PCFDataSample-cal DEVICE_TARGET=$DEVICE_UDID DEVICE_ENDPOINT=http://$DEVICE_IP:37265 cucumber
 
